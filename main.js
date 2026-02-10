@@ -5,6 +5,7 @@ new p5();
 
 let canvas = document.getElementById("canvas");
 let elink = getElementById("exportlink");
+let belink = getElementById("backupexportlink");
 let zval = getElementById("Z");
 
 function Color(val){
@@ -50,11 +51,14 @@ let s = 12340;
 let z = 5;
 
 function reloadUI(){
+    gen(500, 500, z, 1, 0.1, s);
     zval.innerHTML = " "+z+" ";
 }
 
-gen(500, 500, z, 1, 0.1, s);
+reloadUI();
 
 function Export(){
-    elink.href = canvas.toDataURL("image/png");
+    let link = canvas.toDataURL("image/png");
+    elink.href = link;
+    belink.innerHTML = link;
 }

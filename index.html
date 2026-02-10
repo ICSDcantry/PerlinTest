@@ -9,18 +9,20 @@
   <body style="background-color:black; color:white;">
 
     <div id="ui">
-      <button onclick="s++; gen(500, 500, z, 1, 0.1, s);">inc seed</button>
+      <button onclick="s++; reloadUI();">inc seed</button>
       <br>
-      <button onclick="Export();"></button>
+      <button onclick="Export();">export</button>
       <br>
       <div>
         z
-        <button onclick="z--; gen(500, 500, z, 1, 0.1, s); reloadUI();">-</button>
-        <span id="Z"> 5 </span>
-        <button onclick="z++; gen(500, 500, z, 1, 0.1, s); reloadUI();">+</button>
+        <button onclick="z--; reloadUI();">-</button>
+        <span id="Z"></span>
+        <button onclick="z++; reloadUI();">+</button>
       </div>
       <br>
-      <a id="exportlink">DOWNLOADLINK</a>
+
+      <a id="exportlink" href="">DOWNLOAD</a>
+      <span id="backupexportlink"></span>
       <br>
     </div>
     
