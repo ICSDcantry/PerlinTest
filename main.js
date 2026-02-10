@@ -12,8 +12,8 @@ const zval = document.getElementById("Z");
 const dval = document.getElementById("D");
 const lval = document.getElementById("L");
 
-const belink = document.getElementById("backupexportlink");
-const elink = document.getElementById("exportlink");
+const dimage = document.getElementById("dimg");
+const Dimage = document.getElementById("Dimg");
 
 
 
@@ -29,10 +29,18 @@ function Color(val){
 const w = 2048;
 const h = 1024;
 
+const miniw = 256;
+const minih = 128;
+
 const base = 1024;
 
 canvas.width = w;
 canvas.height = h;
+
+let mScale = min(w/miniw, h/minih);
+
+dimage.width = w/mScale;
+dimage.height = h/mScale;
 
 let scale = 5;
 let layers = 1;
@@ -69,16 +77,21 @@ function gen(){
     ctx.putImageData(draw, 0, 0);
 }
 
+
+let link;
+
 function reload(){//not replaced by reloadUI due for debugging purposes
     zval.innerHTML = " "+scale+" ";
     dval.innerHTML = " "+detail+" ";
     lval.innerHTML = " "+layers+" ";
     gen();
 
-    let link = canvas.toDataURL("image/png");
-    if(belink) belink.innerHTML = link;
-    if(elink) elink.href = link;
+    canvas.toBlob((blob) => {dimage.src = URL.createObjectURL(blob);}, "image/png");
+    canvas.toBlob((blob) => {Dimage.href = URL.createObjectURL(blob);}, "image/png");
 }
+
+function openimg(){window.open(canvas.toDataURL("image/png"), '_blank').focus();}
+function copyimg(){navigator.clipboard.writeText(canvas.toDataURL("image/png"));}
 
 reload();
 
