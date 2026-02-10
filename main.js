@@ -58,6 +58,7 @@ function gen(){
 
 gen();
 
+/*
 function reloadUI(){
     gen();
     zval.innerHTML = " "+scale+" ";
@@ -69,4 +70,4 @@ function Export(){
     let link = canvas.toDataURL("image/png");
     elink.href = link;
     belink.innerHTML = link;
-}
+}*/
