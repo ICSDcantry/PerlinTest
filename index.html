@@ -9,7 +9,18 @@
   <body style="background-color:black">
 
     <div id="ui">
-      f
+      <button onclick="gen(500, 500, z, 1, 0.1, ++s);">increment seed</button>
+      <br>
+      <button onclick="Export();"></button>
+      <br>
+      <div>
+        z
+        <button onclick="gen(500, 500, --z, 1, 0.1, s);">-</button>
+        <span id="Z"></span>
+        <button onclick="gen(500, 500, ++z, 1, 0.1, s);">+</button>
+      </div>
+      <br>
+      <a id="exportlink">DOWNLOADLINK</a>
     </div>
     
     <canvas id="canvas"></canvas>
