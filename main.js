@@ -8,6 +8,9 @@ let elink = getElementById("exportlink");
 let belink = getElementById("backupexportlink");
 let zval = getElementById("Z");
 
+
+
+
 function Color(val){
     if ((val * 5) % 1 < 0.5) out = 0;
     else out = 255;
@@ -16,10 +19,14 @@ function Color(val){
 }
 
 
+let w = 500;
+let h = 500;
+let scale = 5;
+let layers = 1;
+let detail = 0.1;
+let seed = 12340;
 
-
-function gen(w, h, scale, layers, detail, seed){
-
+function gen(){
     noiseSeed(seed);
     noiseDetail(layers, detail);
 
@@ -42,20 +49,19 @@ function gen(w, h, scale, layers, detail, seed){
     }
 
     ctx.putImageData(draw, 0, 0);
-
 }
 
 
 
-let s = 12340;
-let z = 5;
+
+
+gen();
 
 function reloadUI(){
-    gen(500, 500, z, 1, 0.1, s);
-    zval.innerHTML = " "+z+" ";
+    gen();
+    zval.innerHTML = " "+scale+" ";
 }
 
-gen(500, 500, z, 1, 0.1, s);
 reloadUI();
 
 function Export(){

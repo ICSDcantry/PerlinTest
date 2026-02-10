@@ -8,28 +8,30 @@
   </head>
   <body style="background-color:black; color:white;">
 
+
+    <canvas id="canvas"></canvas>
+    <br>
+
     <div id="ui">
-      <button onclick="s++; reloadUI();">inc seed</button>
+      <button onclick="seed++; reloadUI();">inc seed</button>
       <br>
-      <button onclick="Export();">export</button>
-      <br>
+      
       <div>
         z
-        <button onclick="z--; reloadUI();">-</button>
+        <button onclick="scale--; reloadUI();">-</button>
         <span id="Z"></span>
-        <button onclick="z++; reloadUI();">+</button>
+        <button onclick="scale++; reloadUI();">+</button>
       </div>
+
+
       <br>
 
-      <a id="exportlink" href="">DOWNLOAD</a>
-      <span id="backupexportlink"></span>
+      <div>
+        <button onclick="Export();">export</button>
+        <a id="exportlink">DOWNLOAD</a>
+        <span id="backupexportlink"></span>
+      </div>
     </div>
-
-    <br>
-    
-    <canvas id="canvas"></canvas>
-    
-    
     
     <script src="main.js"></script>
 
