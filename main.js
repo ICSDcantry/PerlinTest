@@ -4,6 +4,8 @@ new p5();
 
 
 let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext("2d");
+
 let elink = getElementById("exportlink");
 let belink = getElementById("backupexportlink");
 let zval = getElementById("Z");
@@ -33,7 +35,6 @@ function gen(){
     canvas.width = w;
     canvas.height = h;
 
-    let ctx = canvas.getContext("2d");
     let draw = ctx.createImageData(w, h);
 
     for (var x = 0; x < w; x++) {
