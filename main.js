@@ -8,12 +8,12 @@ new p5();
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const belink = document.getElementById("backupexportlink");
-const elink = document.getElementById("exportlink");
-
 const zval = document.getElementById("Z");
 const dval = document.getElementById("D");
 const lval = document.getElementById("L");
+
+const belink = document.getElementById("backupexportlink");
+const elink = document.getElementById("exportlink");
 
 
 
@@ -72,8 +72,10 @@ function reload(){//not replaced by reloadUI due for debugging purposes
     gen();
 
     let link = canvas.toDataURL("image/png");
-    belink.innerHTML = link;
-    elink.href = link;
+    if(belink) belink.innerHTML = link;
+    if(elink) elink.href = link;
 }
 
 reload();
+
+
