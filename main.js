@@ -50,7 +50,7 @@ let s = 12340;
 let z = 5;
 
 function reloadUI(){
-    zval.innerHTML = z;
+    zval.innerHTML = " "+z+" ";
 }
 
 gen(500, 500, z, 1, 0.1, s);

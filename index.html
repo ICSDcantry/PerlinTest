@@ -6,21 +6,22 @@
     <link rel="stylesheet" type="text/css" href="style.css">    
 
   </head>
-  <body style="background-color:black">
+  <body style="background-color:black; color:white;">
 
     <div id="ui">
-      <button onclick="gen(500, 500, z, 1, 0.1, ++s);">increment seed</button>
+      <button onclick="s++; gen(500, 500, z, 1, 0.1, s);">inc seed</button>
       <br>
       <button onclick="Export();"></button>
       <br>
       <div>
         z
-        <button onclick="gen(500, 500, --z, 1, 0.1, s);">-</button>
-        <span id="Z"></span>
-        <button onclick="gen(500, 500, ++z, 1, 0.1, s);">+</button>
+        <button onclick="z--; gen(500, 500, z, 1, 0.1, s); reloadUI();">-</button>
+        <span id="Z"> 5 </span>
+        <button onclick="z++; gen(500, 500, z, 1, 0.1, s); reloadUI();">+</button>
       </div>
       <br>
       <a id="exportlink">DOWNLOADLINK</a>
+      <br>
     </div>
     
     <canvas id="canvas"></canvas>
