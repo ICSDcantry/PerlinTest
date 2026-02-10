@@ -5,13 +5,15 @@ new p5();
 
 
 
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-let belink = document.getElementById("backupexportlink");
-let zval = document.getElementById("Z");
-let dval = document.getElementById("D");
-let lval = document.getElementById("L");
+const belink = document.getElementById("backupexportlink");
+const elink = document.getElementById("exportlink");
+
+const zval = document.getElementById("Z");
+const dval = document.getElementById("D");
+const lval = document.getElementById("L");
 
 
 
@@ -58,22 +60,15 @@ function gen(){
     ctx.putImageData(draw, 0, 0);
 }
 
-
-
-
-
-
-
-function reloadUI(){
-    gen();
+function reload(){//not replaced by reloadUI due for debugging purposes
     zval.innerHTML = " "+scale+" ";
     dval.innerHTML = " "+detail+" ";
     lval.innerHTML = " "+layers+" ";
-}
+    gen();
 
-reloadUI();
-
-function exportIMG(){
     let link = canvas.toDataURL("image/png");
     belink.innerHTML = link;
+    elink.href = link;
 }
+
+reload();

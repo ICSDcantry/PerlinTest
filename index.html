@@ -8,7 +8,7 @@
 
   </head>
 
-  <body style="background-color:black; color:white;">
+  <body>
     <canvas id="canvas"></canvas>
 
 
@@ -20,35 +20,35 @@
       
       <div>
         z
-        <button onclick="scale--; gen();">-</button>
+        <button onclick="scale--; reload();">-</button>
         <span id="Z"></span>
-        <button onclick="scale++; gen();">+</button>
+        <button onclick="scale++; reload();">+</button>
       </div>
 
       <br>
 
       <div>
         detail
-        <button onclick="detail-=0.1; gen();">-</button>
+        <button onclick="detail-=0.1; reload();">-</button>
         <span id="D"></span>
-        <button onclick="detail+=0.1; gen();">+</button>
+        <button onclick="detail+=0.1; reload();">+</button>
       </div>
 
       <br>
 
       <div>
         layers
-        <button onclick="layers++; gen();">-</button>
+        <button onclick="layers++; reload();">-</button>
         <span id="L"></span>
-        <button onclick="layers--; gen();">+</button>
+        <button onclick="layers--; reload();">+</button>
       </div>
-
 
       <br>
 
       <div>
-        <button onclick="exportIMG();">export</button>
-        <span id="backupexportlink">__dataurl__</span>
+        <button onclick="[elink.hidden, belink.hidden] = [belink.hidden, elink.hidden];">Switch To Backup</button>
+        <span id="backupexportlink" hidden>__dataurl__</span>
+        <a id="exportlink" href="">Export link</a>
       </div>
     </div>
 
