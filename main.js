@@ -6,9 +6,10 @@ new p5();
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-let elink = getElementById("exportlink");
 let belink = getElementById("backupexportlink");
 let zval = getElementById("Z");
+let dval = getElementById("D");
+let lval = getElementById("L");
 
 
 
@@ -21,25 +22,26 @@ function Color(val){
 }
 
 
-let w = 500;
-let h = 500;
+const w = 500;
+const h = 500;
+
+canvas.width = w;
+canvas.height = h;
+
 let scale = 5;
 let layers = 1;
 let detail = 0.1;
 let seed = 12340;
 
+let draw = ctx.createImageData(w, h);
+
 function gen(){
     noiseSeed(seed);
     noiseDetail(layers, detail);
 
-    canvas.width = w;
-    canvas.height = h;
-
-    let draw = ctx.createImageData(w, h);
-
     for (var x = 0; x < w; x++) {
         for (var y = 0; y < h; y++) {
-            let C = Color(noise((x * scale) / w, (y * scale) / h));
+            let C = Color(noise((x/w) * scale, (y/h) * scale));
             let i = 4 * (y * w + x);
 
             draw.data[i] = C[0];
@@ -62,12 +64,13 @@ gen();
 function reloadUI(){
     gen();
     zval.innerHTML = " "+scale+" ";
+    dval.innerHTML = " "+detail+" ";
+    lval.innerHTML = " "+layers+" ";
 }
 
 reloadUI();
 
-function Export(){
+function exportIMG(){
     let link = canvas.toDataURL("image/png");
-    elink.href = link;
     belink.innerHTML = link;
 }*/

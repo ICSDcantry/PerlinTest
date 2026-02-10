@@ -15,23 +15,40 @@
     <br>
 
     <div id="ui">
-      <button onclick="seed++; reloadUI();">inc seed</button>
+      <button onclick="seed++; gen();">inc seed</button>
       <br>
       
       <div>
         z
-        <button onclick="scale--; reloadUI();">-</button>
+        <button onclick="scale--; gen();">-</button>
         <span id="Z"></span>
-        <button onclick="scale++; reloadUI();">+</button>
+        <button onclick="scale++; gen();">+</button>
+      </div>
+
+      <br>
+
+      <div>
+        detail
+        <button onclick="detail-=0.1; gen();">-</button>
+        <span id="D"></span>
+        <button onclick="detail+=0.1; gen();">+</button>
+      </div>
+
+      <br>
+
+      <div>
+        layers
+        <button onclick="layers++; gen();">-</button>
+        <span id="L"></span>
+        <button onclick="layers--; gen();">+</button>
       </div>
 
 
       <br>
 
       <div>
-        <button onclick="Export();">export</button>
-        <a id="exportlink">DOWNLOAD</a>
-        <span id="backupexportlink"></span>
+        <button onclick="exportIMG();">export</button>
+        <span id="backupexportlink">__dataurl__</span>
       </div>
     </div>
 
