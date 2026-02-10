@@ -26,8 +26,10 @@ function Color(val){
 }
 
 
-const w = 500;
-const h = 500;
+const w = 2048;
+const h = 1024;
+
+const base = 1024;
 
 canvas.width = w;
 canvas.height = h;
@@ -46,13 +48,15 @@ let seed = 12340;
 
 let draw = ctx.createImageData(w, h);
 
+const offset = 100;
+
 function gen(){
     noiseSeed(seed);
     noiseDetail(layers, detail);
 
     for (var x = 0; x < w; x++) {
         for (var y = 0; y < h; y++) {
-            let C = Color(noise(((x/w)-0.5) * scale, ((y/h)-0.5) * scale));
+            let C = Color(noise(((x/base)+offset-0.5) * scale, ((y/base)+offset-0.5) * scale));
             let i = 4 * (y * w + x);
 
             draw.data[i] = C[0];
