@@ -3,6 +3,8 @@ new p5();
 
 
 
+
+
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
@@ -32,6 +34,15 @@ let scale = 5;
 let layers = 1;
 let detail = 0.1;
 let seed = 12340;
+
+
+function reloadUI(){
+    zval.innerHTML = " "+scale+" ";
+    dval.innerHTML = " "+detail+" ";
+    lval.innerHTML = " "+layers+" ";
+}
+
+reloadUI();
 
 let draw = ctx.createImageData(w, h);
 
