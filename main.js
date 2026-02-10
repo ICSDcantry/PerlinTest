@@ -38,6 +38,11 @@ let detail = 0.1;
 let seed = 12340;
 
 
+/*
+2-3
+0.5
+*/
+
 
 let draw = ctx.createImageData(w, h);
 
@@ -47,7 +52,7 @@ function gen(){
 
     for (var x = 0; x < w; x++) {
         for (var y = 0; y < h; y++) {
-            let C = Color(noise((x/w) * scale, (y/h) * scale));
+            let C = Color(noise(((x/w)-0.5) * scale, ((y/h)-0.5) * scale));
             let i = 4 * (y * w + x);
 
             draw.data[i] = C[0];

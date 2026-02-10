@@ -15,7 +15,7 @@
     <br>
 
     <div id="ui">
-      <button onclick="seed++; gen();">inc seed</button>
+      <button onclick="seed++; reload();">inc seed</button>
       <br>
       
       <div>
@@ -38,9 +38,9 @@
 
       <div>
         layers
-        <button onclick="layers++; reload();">-</button>
+        <button onclick="layers--; reload();">-</button>
         <span id="L"></span>
-        <button onclick="layers--; reload();">+</button>
+        <button onclick="layers++; reload();">+</button>
       </div>
 
       <br>
