@@ -8,10 +8,10 @@ new p5();
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-let belink = getElementById("backupexportlink");
-let zval = getElementById("Z");
-let dval = getElementById("D");
-let lval = getElementById("L");
+let belink = document.getElementById("backupexportlink");
+let zval = document.getElementById("Z");
+let dval = document.getElementById("D");
+let lval = document.getElementById("L");
 
 
 
@@ -36,13 +36,6 @@ let detail = 0.1;
 let seed = 12340;
 
 
-function reloadUI(){
-    zval.innerHTML = " "+scale+" ";
-    dval.innerHTML = " "+detail+" ";
-    lval.innerHTML = " "+layers+" ";
-}
-
-reloadUI();
 
 let draw = ctx.createImageData(w, h);
 
@@ -69,9 +62,8 @@ function gen(){
 
 
 
-gen();
 
-/*
+
 function reloadUI(){
     gen();
     zval.innerHTML = " "+scale+" ";
@@ -84,4 +76,4 @@ reloadUI();
 function exportIMG(){
     let link = canvas.toDataURL("image/png");
     belink.innerHTML = link;
-}*/
+}
